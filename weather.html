@@ -27,12 +27,9 @@ let loc = document.querySelector(".location");
 let icon = document.querySelector(".icon");
 const kelvin = 273;
 
-window.addEventListener("load", () => 
-	{
-if (navigator.geolocation) 
-{
-	navigator.geolocation.getCurrentPosition((position) => 
-		{
+window.addEventListener("load", () => {
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition((position) => {
 	console.log(position);
 	lon = position.coords.longitude;
 	lat = position.coords.latitude;
@@ -45,12 +42,10 @@ if (navigator.geolocation)
 
 	// Calling the API
 	fetch(base)
-		.then((response) => 
-			{
+		.then((response) => {
 		return response.json();
 		})
-		.then((data) => 
-			{
+		.then((data) => {
 		console.log(data);
 		temperature.textContent = Math.floor(data.main.temp - kelvin) + "°C";
 		summary.textContent = data.weather[0].description;
